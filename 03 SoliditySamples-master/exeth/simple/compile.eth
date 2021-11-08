@@ -1,0 +1,9 @@
+
+message "compiling counter.sol"
+compile "./contracts/counter.sol"
+message "counter.sol compiled"
+
+dump Object.keys(contracts.Counter)
+dump contracts.Counter.evm.assembly
+dump contracts.Counter.evm.methodIdentifiers
+

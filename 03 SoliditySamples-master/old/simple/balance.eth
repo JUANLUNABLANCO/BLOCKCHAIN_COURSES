@@ -1,0 +1,12 @@
+
+# retrieve accounts from default host (http://localhost:8545)
+accounts
+
+assert accounts
+assert accounts.length
+
+message "First account is" accounts[0]
+
+balance accounts[0]
+
+message "Its balance is" value

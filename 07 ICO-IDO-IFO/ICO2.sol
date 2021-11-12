@@ -80,8 +80,8 @@ contract smartContractICO is OwnableLitle {
   using SafeMathLitle for uint256;
   Token token;
 
-  uint256 public constant RATE = 3000; // Number of tokens per Ether
-  uint256 public constant CAP = 5350; // Cap in Ether 
+  uint256 public constant RATE = 3000;  // Number of tokens per Ether
+  uint256 public constant CAP = 5350;   // Cap in Ether 
   uint256 public constant START = 1636634127; // today date, calculate with nodejs npm run nowInSeconds.js --> console.log(new Date().getTime() / 1000);
   uint256 public constant DAYS = 45; // 45 Days for example, can be 30, 60
   

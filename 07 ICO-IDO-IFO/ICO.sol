@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2  ;
 
 
-import "./chronotoken_master.sol";
+import "./choseToken.sol";
 
 contract choseTokensale {
 address admin ;
@@ -14,7 +15,7 @@ event sell(address _buyer,uint256 _amount);
 
 function chosetokensale (ChronoToken _tokenContract,uint256 _tokenPrice) public {
     admin = msg.sender;
-    ChronoToken = _tokenContract;
+    tokenContract = _tokenContract;
     tokenPrice =_tokenPrice;
     }
     
@@ -28,9 +29,9 @@ function chosetokensale (ChronoToken _tokenContract,uint256 _tokenPrice) public 
    //require that  value is equal to tokens
     msg.value == multiply (_numberOfTokens , tokenPrice);
    //require that there are enough tokens in the contract
-    require(ChronoToken.balanceOf(address(this)) >= _numberOfTokens,"there is not enough tokens ");
+    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens,"there is not enough tokens ");
    // require that transfer is successfull
-    require(ChronoToken.transfer(msg.sender, _numberOfTokens),"transfer not seccesfull");
+    require(tokenContract.transfer(msg.sender, _numberOfTokens),"transfer not seccesfull");
    //keep track of sold tokens
    tokenSold += _numberOfTokens;
    //trigger sell Event
@@ -43,7 +44,7 @@ function chosetokensale (ChronoToken _tokenContract,uint256 _tokenPrice) public 
       //require that only the admin can do this
       require(msg.sender == admin);
       //require to transfer the remainig choseTokens to admin
-      ChronoToken.transfer(admin, ChronoToken.balanceOf(address(this)));
+      tokenContract.transfer(admin, tokenContract.balanceOf(address(this)));
      
      //address payable addr = payable(address(admin));
      

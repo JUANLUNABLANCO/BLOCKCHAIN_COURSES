@@ -22,6 +22,7 @@ interface IERC20 {
 contract FlashBorrower is IERC3156FlashBorrower {
     enum Action {NORMAL, OTHER}
     IERC3156FlashLender lender;
+    
     constructor (IERC3156FlashLender lender_) {
         lender = lender_;
     }
@@ -30,7 +31,7 @@ contract FlashBorrower is IERC3156FlashBorrower {
     function onFlashLoan(address initiator, address token, uint256 amount, uint256 fee, bytes calldata data) external view override returns(bytes32) {
         require(msg.sender == address(lender), "FlashBorrower: Untrusted lender");
         require(initiator == address(this), "FlashBorrower: Untrusted loan initiator");
-        (Action action) = abi.decode(data, (Action));
+        // (Action action) = abi.decode(data, (Action));
         return keccak256("ERC3156FlashBorrower.onFlashLoan");
     }
 

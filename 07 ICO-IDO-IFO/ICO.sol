@@ -1,20 +1,20 @@
 pragma solidity ^0.8.2  ;
 
 
-import "./choseToken.sol";
+import "./chronotoken_master.sol";
 
 contract choseTokensale {
 address admin ;
-choseToken public tokenContract ;
+ChronoToken public tokenContract ;
 uint256 public tokenPrice;
 uint256 public tokenSold;
 
 
 event sell(address _buyer,uint256 _amount);
 
-function chosetokensale (choseToken _tokenContract,uint256 _tokenPrice) public {
+function chosetokensale (ChronoToken _tokenContract,uint256 _tokenPrice) public {
     admin = msg.sender;
-    tokenContract = _tokenContract;
+    ChronoToken = _tokenContract;
     tokenPrice =_tokenPrice;
     }
     
@@ -28,9 +28,9 @@ function chosetokensale (choseToken _tokenContract,uint256 _tokenPrice) public {
    //require that  value is equal to tokens
     msg.value == multiply (_numberOfTokens , tokenPrice);
    //require that there are enough tokens in the contract
-    require(tokenContract.balanceOf(address(this)) >= _numberOfTokens,"there is not enough tokens ");
+    require(ChronoToken.balanceOf(address(this)) >= _numberOfTokens,"there is not enough tokens ");
    // require that transfer is successfull
-    require(tokenContract.transfer(msg.sender, _numberOfTokens),"transfer not seccesfull");
+    require(ChronoToken.transfer(msg.sender, _numberOfTokens),"transfer not seccesfull");
    //keep track of sold tokens
    tokenSold += _numberOfTokens;
    //trigger sell Event
@@ -43,7 +43,7 @@ function chosetokensale (choseToken _tokenContract,uint256 _tokenPrice) public {
       //require that only the admin can do this
       require(msg.sender == admin);
       //require to transfer the remainig choseTokens to admin
-      tokenContract.transfer(admin, tokenContract.balanceOf(address(this)));
+      ChronoToken.transfer(admin, ChronoToken.balanceOf(address(this)));
      
      //address payable addr = payable(address(admin));
      

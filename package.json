@@ -1,0 +1,20 @@
+{
+	"name": "blockchain-courses",
+	"version": "1.0.0",
+	"description": "BLOCK CHAIN COURSES",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"nowInSeconds": "node nowInSeconds.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JUANLUNABLANCO/BLOCKCHAIN_COURSES.git"
+	},
+	"author": "JuanLuna",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JUANLUNABLANCO/BLOCKCHAIN_COURSES/issues"
+	},
+	"homepage": "https://github.com/JUANLUNABLANCO/BLOCKCHAIN_COURSES#readme"
+}
